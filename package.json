@@ -15,7 +15,8 @@
     "watch:serve-static": "nodemon ./private/server.js",
     "lint": "yarn lint:js && yarn lint:scss",
     "lint:js": "eslint --ext .js src/",
-    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss"
+    "lint:scss": "stylelint 'src/**/*.scss' --syntax scss",
+    "deploy:gh-pages": "gh-pages -d public"
   },
   "main": "index.js",
   "repository": "git@github.com:mainset/react-ethereal-boilerplate.git",
@@ -43,6 +44,7 @@
     "eslint-plugin-jsx-a11y": "^6.2.1",
     "eslint-plugin-react": "^7.12.4",
     "file-loader": "^3.0.1",
+    "gh-pages": "^2.2.0",
     "html-webpack-plugin": "^3.2.0",
     "husky": "^1.1.2",
     "mini-css-extract-plugin": "^0.5.0",
