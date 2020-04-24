@@ -1,0 +1,73 @@
+// stylelint-disable sh-waqar/declaration-use-variable, selector-max-id
+#loader {
+  background-color: rgba(255, 255, 255, 0.9);
+  border-radius: 16px;
+  box-shadow: 0 24px 64px rgba(0, 0, 0, 0.24);
+  height: 96px;
+  left: 50%;
+  opacity: 0;
+  position: fixed;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  transition: opacity 0.2s ease-out, visibility 0s linear 0.2s;
+  visibility: hidden;
+  width: 96px;
+  z-index: 1000;
+}
+
+#loader.fullscreen {
+  background-color: #fff;
+  border-radius: 0;
+  box-shadow: none;
+  height: 100%;
+  left: 0;
+  padding: 0;
+  top: 0;
+  transform: none;
+  width: 100%;
+}
+
+#loader.show {
+  opacity: 1;
+  transition: opacity 0.4s ease-out, visibility 0s linear 0s;
+  visibility: visible;
+}
+
+#loader .circular {
+  animation: loader-rotate 2s linear infinite;
+  display: block;
+  left: calc(50% - 24px);
+  position: absolute;
+  top: calc(50% - 24px);
+  transform: rotate(0deg);
+}
+
+#loader .path {
+  animation: loader-dash 1.5s ease-in-out infinite;
+  stroke-dasharray: 1, 200;
+  stroke-dashoffset: 0;
+  stroke-linecap: round;
+}
+
+@keyframes loader-rotate {
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes loader-dash {
+  0% {
+    stroke-dasharray: 1, 200;
+    stroke-dashoffset: 0;
+  }
+
+  50% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -35px;
+  }
+
+  100% {
+    stroke-dasharray: 89, 200;
+    stroke-dashoffset: -136px;
+  }
+}

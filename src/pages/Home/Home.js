@@ -1,12 +1,30 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import AOS from 'aos';
 
-const Home = () => (
-  <div className="home-page">
-    <div>Hello world</div>
-    <br />
-    <Link to="/example">Check example page</Link>
-  </div>
-);
+import { Loader } from 'components';
+
+import Header from './Header';
+import * as Section from './Section';
+
+
+const Home = () => {
+  React.useEffect(() => {
+    AOS.init({
+      duration: 600,
+    });
+  }, []);
+
+  return (
+    <div className="home-page">
+      <Header />
+
+      <Section.Welcome />
+      <Section.FindYourBestFood />
+      <Section.TheRestaurant />
+
+      <Loader />
+    </div>
+  );
+};
 
 export default Home;

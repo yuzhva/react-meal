@@ -1,1 +1,11 @@
-// TODO: add styles
+// third-party libraries
+@import '~bootstrap/dist/css/bootstrap.min.css';
+@import '~aos/dist/aos.css';
+@import '~ionicons/css/ionicons.min.css';
+
+// local styles
+@import 'components/styles.scss';
+@import 'pages/styles.scss';
+
+@import './fonts.scss';
+@import './global.scss';

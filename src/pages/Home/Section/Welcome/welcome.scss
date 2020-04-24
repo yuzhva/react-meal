@@ -1,0 +1,99 @@
+@import '../../../../styles/variables';
+@import '../../../../styles/mixins';
+
+// stylelint-disable
+.cover_1 {
+  position: relative;
+  overflow: hidden;
+
+  &.overlay {
+    &:before {
+      position: absolute;
+      content: "";
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      background: $black;
+      opacity: 0.2;
+    }
+  }
+  .lead {
+    color: $white;
+    font-size: 18px;
+  }
+  .img_bg {
+    background-repeat: no-repeat;
+    background-size: cover !important;
+    background-position: 50% -25px;
+    &,
+    > .container > .row {
+      min-height: 700px;
+      height: 100vh;
+    }
+  }
+
+  &.cover_sm {
+    .img_bg {
+      &,
+      > .container > .row {
+        min-height: 600px;
+        height: 80vh;
+      }
+    }
+  }
+
+  .sub-heading {
+    color: rgba(255, 255, 255, 1);
+    font-size: 26px;
+    max-width: 500px;
+    margin: 0 auto;
+    @include media-breakpoint-down(md) {
+      font-size: 20px;
+    }
+  }
+  .heading {
+    color: rgba(255, 255, 255, 1);
+    font-weight: 300;
+    font-size: 30px;
+    line-height: 1.5;
+    @include media-breakpoint-up(md) {
+      font-size: 70px;
+      font-weight: 900;
+      line-height: 1.2;
+    }
+  }
+  a {
+    color: rgba($white, 0.8);
+    border-bottom: 1px solid rgba($white, 0.6);
+    &:hover {
+      color: $white;
+      border-bottom: none;
+    }
+  }
+
+  .btn-welcome {
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    font-size: 14px;
+    font-weight: 700;
+
+    &:hover,
+    &:focus,
+    &:active {
+      box-shadow: none !important;
+    }
+
+    &.btn-welcome--outline-white {
+      border: 2px solid $white;
+      background: none;
+      color: $white;
+      text-decoration: none;
+      &:hover {
+        background: $white;
+        color: $black;
+        border: 2px solid transparent;
+      }
+    }
+  }
+}

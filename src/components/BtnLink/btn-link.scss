@@ -1,0 +1,26 @@
+@import '../../styles/variables';
+
+// stylelint-disable
+.btn-link {
+  text-transform: uppercase;
+  font-size: 12px !important;
+  letter-spacing: 0.15em;
+  text-decoration: none !important;
+  transition: 0.3s all ease;
+  color: $black;
+  font-weight: 900;
+  span {
+    position: relative;
+    margin-left: 0px;
+    transition: 0.3s all ease;
+  }
+  &:hover,
+  &:active,
+  &:focus {
+    color: $black;
+    span {
+      color: $black;
+      margin-left: 10px;
+    }
+  }
+}
