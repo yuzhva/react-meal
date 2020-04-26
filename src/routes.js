@@ -1,12 +1,15 @@
 import React from 'react';
-import { Switch, Route } from 'react-router-dom';
+
+import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
 import { Home } from 'pages';
 
-const routes = (
-  <Switch>
-    <Route exact path="/" component={Home} />
-  </Switch>
+const Routes = (
+  <BrowserRouter>
+    <Switch>
+      <Route path="/" component={Home} />
+    </Switch>
+  </BrowserRouter>
 );
 
-export default routes;
+export default Routes;
