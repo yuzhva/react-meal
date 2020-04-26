@@ -1,19 +1,14 @@
-require('dotenv').config();
+const path = require('path')
+const webpack = require('webpack')
+const MiniCssExtractPlugin = require('mini-css-extract-plugin')
 
-/* eslint-disable */
-var MiniCssExtractPlugin = require('mini-css-extract-plugin');
-var path = require('path');
+const babelConfig = require('../babel.config.json')
 
-var babelConfig = require('../../../babel.config.js');
-
-var paths = require('./paths');
-/* eslint-enable */
+const rootPath = path.join(__dirname, '..')
+const srcPath = path.join(rootPath, 'src')
 
 module.exports = {
   mode: JSON.stringify(process.env.NODE_ENV),
-  output: {
-    publicPath: '/',
-  },
   module: {
     rules: [
       {
@@ -21,7 +16,8 @@ module.exports = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: babelConfig,
-      }, {
+      },
+      {
         test: /\.(svg|png|jpg)$/,
         use: [
           {
@@ -32,7 +28,8 @@ module.exports = {
             },
           },
         ],
-      }, {
+      },
+      {
         test: /\.(woff|woff2|eot|ttf|otf)$/,
         use: [
           {
@@ -43,7 +40,8 @@ module.exports = {
             },
           },
         ],
-      }, {
+      },
+      {
         test: /\.(sa|sc|c)ss$/,
         use: [
           {
@@ -59,6 +57,13 @@ module.exports = {
     ],
   },
   resolve: {
-    modules: [paths.src, 'node_modules'],
+    modules: [srcPath, 'node_modules'],
   },
-};
+  plugins: [
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify(process.env.NODE_ENV),
+      },
+    }),
+  ],
+}
